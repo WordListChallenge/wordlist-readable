@@ -10,8 +10,8 @@ fragments = set()
 
 def init_fragments():
     """
-    Initialize the fragments set.
-    After this method finishes, the fragments set will contain
+    Initialize the set of fragments.
+    After this method returns, the set will contain
     all dictionary words of length 5 or less.
     """
     for word in fileinput.input(dictionary_file):
@@ -22,8 +22,9 @@ def init_fragments():
 
 def check(word):
     """
-    Check if the input word is composed of two shorter words.
-    Print the compositions, if any.
+    Check if the input word can be written as
+    a composition of two members of the fragment set.
+    Print all compositions found.
     """
     for i in range(1, target_length):
         if word[0:i] in fragments and word[i:] in fragments:
